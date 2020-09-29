@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Location LIVE</h1>
+    <p>
+        Latitude : <span id="lat"></span></br>
+        Latitude : <span id="lon"></span>
+    </p>
+
+    <script>
+          if('geolocation' in navigator)
+        {
+            const watchID=navigator.geolocation.watchPosition((position) => {
+            const lat = position.coords.latitude
+            const lon = position.coords.longitude
+            console.log(position.coords.latitude)
+            console.log(position.coords.longitude)
+            console.log(watchID)
+            document.getElementById('lat').textContent = lat.toFixed(2)
+            document.getElementById('lon').textContent = lon.toFixed(2)
+});
+        }
+    </script>
+</body>
+</html>
