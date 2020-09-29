@@ -15,20 +15,57 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>International Space Station Live Position</h1>
-    
-        <p>
+    <h1>My Location LIVE</h1>
+    <p>
         Latitude : <span id="lat"></span></br>
-        Longitude : <span id="lon"></span></br>
-        Velocity : <span id="velocity"></span> Km/hr</br>
-        Altitude : <span id="Altitude"></span> Kms</br>
-        Visibilty :<span id="visibility"></span>
-        
-        </p>
+        Latitude : <span id="lon"></span></br>
+        Speed : <span id="speed"></span> Km/hr</br>
+        Heading Towards : <span id="heading"></span></br>
+        Altitude : <span id="altitude"></span> 
+
+    </p>
+    <script>
+           </script>
+    
+    
         <div id="issMap"></div>
         
     <script>
-        //Making a Map and Tiles
+        //Geolocation code...
+        if('geolocation' in navigator)
+        {
+            const watchID=navigator.geolocation.watchPosition((position) => {
+            const lat = position.coords.latitude
+            const lon = position.coords.longitude
+            const speed = position.coords.speed
+            const heading = position.coords.heading
+            const altitude = position.coords.altitude
+            console.log(position.coords.latitude)
+            console.log(position.coords.longitude)
+            console.log(position)
+            console.log(watchID)
+            document.getElementById('lat').textContent = lat.toFixed(2)
+            document.getElementById('lon').textContent = lon.toFixed(2) 
+            document.getElementById('heading').textContent = heading
+            document.getElementById('altitude').textContent = altitude
+            if(heading === null)
+            {
+                document.getElementById('heading').textContent = "null"
+            }
+            else
+            {
+                document.getElementById('heading').textContent = heading
+            }
+            if(speed === null)
+            {
+            document.getElementById('speed').textContent = '"Not Moving"'
+            }    
+            else
+            {
+                document.getElementById('speed').textContent = speed
+            }
+
+             //Making a Map and Tiles
         const mymap = L.map('issMap').setView([0,0], 1);
         const attribution = 
                 '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
@@ -37,44 +74,23 @@
         const tiles = L.tileLayer(tileurl,{attribution});
         tiles.addTo(mymap)
             //Making a Marker with custom Icon
-       // const issIcon = L.icon({
-         //                   iconUrl: 'iss200.png',
-           //                 iconSize: [50, 32],
-             //             iconAnchor: [25, 16],
-               //                 });
+       
         const marker = L.marker([0, 0]).addTo(mymap);
       
-            const url="https://api.wheretheiss.at/v1/satellites/25544"
+
             let First = true;                              
-             async function getISS(){
-                
-                const response = await fetch(url)
-                const data = await response.json()
-                console.log(data)
-                const {latitude,longitude} = data
-                marker.setLatLng([latitude,longitude])
+
+                marker.setLatLng([lat,lon])
                 if(First)
                 {
-                mymap.setView([latitude,longitude],2)
+                mymap.setView([lat,lon],2)
                 First=false;
-                }
-               //   const Kms = data.velocity
-              //  const kmsfinal = Kms/3600
-              //  console.log(kmsfinal)    
-                document.getElementById('velocity').textContent = data.velocity.toFixed(3)
-                document.getElementById('Altitude').textContent = data.altitude.toFixed(3)
-                document.getElementById('lat').textContent = data.latitude.toFixed(3)
-                document.getElementById('lon').textContent = data.longitude.toFixed(3)
-                document.getElementById('visibility').textContent = data.visibility
-                                //if(data.altitude > 420)
-                
-                
-               
-               
-            }     
+                }    
+       
+});
+        }
 
-           setInterval(getISS,1000) 
-            
+         
 
     </script>
 </body>
