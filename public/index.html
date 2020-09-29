@@ -21,22 +21,48 @@
         Latitude : <span id="lon"></span>°</br>
         Speed : <span id="speed"></span> Km/hr</br>
         Heading Towards : <span id="heading"></span>°</br>
-        Altitude : <span id="altitude"></span> m
+        Altitude : <span id="altitude"></span> m</br>
+        Battery level: <span id="batterylevel"></span> %</br>
+        Battery Charging : <span id="charging"></span></br>
+        
 
     </p>
     <script>
-           </script>
+ //BatteryStatus code...
+    async function BatteryStatus(){
+            if('getBattery'in navigator )
+        {
+            navigator.getBattery().then(function(battery){
+              //  console.log(battery.level)
+              const batterylevel = battery.level*100
+              document.getElementById('batterylevel').textContent = batterylevel.toFixed(0)    
+              document.getElementById('charging').textContent = battery.charging ? "Yes" : "No"
+              
+
+            })
+        }
+
+
+        }
+
+        setInterval(BatteryStatus,1000)
+       
+
+    </script>
     
     
         <div id="issMap"></div>
         
     <script>
+        
         //Geolocation code...
         if('geolocation' in navigator)
         {
             const options ={
                 enableHighAccuracy :true
             }
+            
+            
             const watchID=navigator.geolocation.watchPosition((position,options) => {
             const lat = position.coords.latitude
             const lon = position.coords.longitude
@@ -51,6 +77,7 @@
             document.getElementById('lon').textContent = lon.toFixed(2) 
             document.getElementById('heading').textContent = heading.toFixed(2)
             document.getElementById('altitude').textContent = altitude.toFixed(2)
+            
             if(heading === null)
             {
                 document.getElementById('heading').textContent = "null"
@@ -91,10 +118,13 @@
                 }    
        
 });
+
         }
 
-         
+  
 
     </script>
+
+    
 </body>
 </html>
