@@ -17,11 +17,11 @@
 <body>
     <h1>My Location LIVE</h1>
     <p>
-        Latitude : <span id="lat"></span></br>
-        Latitude : <span id="lon"></span></br>
+        Latitude : <span id="lat"></span>°</br>
+        Latitude : <span id="lon"></span>°</br>
         Speed : <span id="speed"></span> Km/hr</br>
-        Heading Towards : <span id="heading"></span></br>
-        Altitude : <span id="altitude"></span> 
+        Heading Towards : <span id="heading"></span>°</br>
+        Altitude : <span id="altitude"></span> m
 
     </p>
     <script>
@@ -34,7 +34,10 @@
         //Geolocation code...
         if('geolocation' in navigator)
         {
-            const watchID=navigator.geolocation.watchPosition((position) => {
+            const options ={
+                enableHighAccuracy :true
+            }
+            const watchID=navigator.geolocation.watchPosition((position,options) => {
             const lat = position.coords.latitude
             const lon = position.coords.longitude
             const speed = position.coords.speed
@@ -46,8 +49,8 @@
             console.log(watchID)
             document.getElementById('lat').textContent = lat.toFixed(2)
             document.getElementById('lon').textContent = lon.toFixed(2) 
-            document.getElementById('heading').textContent = heading
-            document.getElementById('altitude').textContent = altitude
+            document.getElementById('heading').textContent = heading.toFixed(2)
+            document.getElementById('altitude').textContent = altitude.toFixed(2)
             if(heading === null)
             {
                 document.getElementById('heading').textContent = "null"
