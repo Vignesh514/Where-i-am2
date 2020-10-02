@@ -6,9 +6,36 @@ async function BatteryStatus(){
       //  console.log(battery.level)
       const batterylevel = battery.level*100
       
-      document.getElementById('batterylevel').textContent = batterylevel.toFixed(0)    
+      //if(batterylevel <= 100)
       
-      document.getElementById('charging').textContent = battery.charging ? "Yes" : "No"
+       // document.getElementById('batterylevel').textContent = batterylevel.fontcolor("yellow")
+      
+     var batcolor = batterylevel.toString()
+      if(batcolor < 25)
+      {
+     document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("red")    
+      }
+      else
+      if(batcolor >25 && batcolor < 65)
+      {
+        document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("orange")
+      }
+      else
+      {
+        document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("green")
+      }
+      
+      if(battery.charging === true)
+      {
+        var value = "Yes"
+        var color = value.fontcolor("green")
+      }
+      else
+      {
+        var value = "No"
+        var color = value.fontcolor("red")
+      }
+      document.getElementById('charging').innerHTML = battery.charging ? color : color
          })
 }
 
