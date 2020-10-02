@@ -10,9 +10,11 @@
   "author": "vignesh",
   "license": "MIT",
   "dependencies": {
+    "chart.js": "^2.9.3",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "fusioncharts": "^3.15.3",
     "nedb": "^1.8.0",
     "nodemon": "^2.0.4"
   }
