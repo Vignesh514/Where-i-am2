@@ -9,28 +9,31 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-        
+        <link rel="stylesheet" href="style.css" type="text/css" >
         <style>
             #issMap { height: 180px; }
         </style>
     <title>Document</title>
 </head>
-<body>
+
+
+<body style="text-align: center;" >
+    
     <h1>My Location LIVE</h1>
-    <p>
+    <p class="p">
         Latitude : <span id="lat"></span>°</br>
         Latitude : <span id="lon"></span>°</br>
         Speed : <span id="speed"></span> Km/hr</br>
         Heading Towards : <span id="heading"></span>°</br>
         Altitude : <span id="altitude"></span> m</br>
-        Battery level: <span id="batterylevel"></span> %</br>
-        Battery Charging : <span id="charging"></span></br>
+        Battery level: <span style="color: red;" id="batterylevel"></span> %</br>
+        Battery Charging : <span style="color: chartreuse;" id="charging"></span> 
 
     </p>
-        <div id="issMap"></div>
+        <div style="text-align: left;" id="issMap"></div>
         <script src="/batterylevel.js"></script>    
         <script src="geolocation.js"></script>
         
-        
+
 </body>
 </html>

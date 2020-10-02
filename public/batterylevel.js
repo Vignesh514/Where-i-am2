@@ -5,12 +5,11 @@ async function BatteryStatus(){
     navigator.getBattery().then(function(battery){
       //  console.log(battery.level)
       const batterylevel = battery.level*100
-      document.getElementById('batterylevel').textContent = batterylevel.toFixed(0)    
-      document.getElementById('charging').textContent = battery.charging ? "Yes" : "No"
-
       
-
-    })
+      document.getElementById('batterylevel').textContent = batterylevel.toFixed(0)    
+      
+      document.getElementById('charging').textContent = battery.charging ? "Yes" : "No"
+         })
 }
 
 
