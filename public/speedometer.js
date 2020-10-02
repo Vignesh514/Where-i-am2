@@ -21,12 +21,12 @@ const dataSource = {
       color: [
         {
           minvalue: "0",
-          maxvalue: speed,
+          maxvalue: batterylevel,
           code: "#999999"
         },
         {
           minvalue: "110",
-          maxvalue: "10",
+          maxvalue: "100",
           code: "#F6F6F6"
         }
       ]
@@ -34,7 +34,7 @@ const dataSource = {
     dials: {
       dial: [
         {
-          value: speed,
+          value: batterylevel,
           bgcolor: "#F20F2F",
           basewidth: "8"
         }
@@ -59,7 +59,7 @@ const dataSource = {
     }
   };
   
-  FusionCharts.ready(function() {
+   setInterval(FusionCharts.ready(function() {
     var myChart = new FusionCharts({
       type: "angulargauge",
       renderAt: "chart-container",
@@ -68,5 +68,5 @@ const dataSource = {
       dataFormat: "json",
       dataSource
     }).render();
-  });
+  }),5000);
   
