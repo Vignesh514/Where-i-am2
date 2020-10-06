@@ -31,6 +31,7 @@
                 //setting Lat,lon in map
                 if(First)
                 {
+                L.circle([lat,lon], {radius: 25,color:'green'}).addTo(mymap);    
                 marker.setLatLng([lat,lon])
                 marker.bindPopup("You are now Here").openPopup();
                 mymap.setView([lat,lon],20)
