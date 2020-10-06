@@ -10,7 +10,7 @@
                  //Making a Marker with custom Icon
             
              const marker = L.marker([0, 0]).addTo(mymap);
-     
+             
 
              let First = true; 
         //Geolocation code...
@@ -25,18 +25,20 @@
             console.log(position.coords.latitude)
             console.log(position.coords.longitude)
             console.log(position)
+           // console.log(position.timestamp)
           //  console.log(watchID)
           
                 //setting Lat,lon in map
-                                             
-
-                marker.setLatLng([lat,lon])
                 if(First)
                 {
-                mymap.setView([lat,lon],10)
+                marker.setLatLng([lat,lon])
+                marker.bindPopup("You are now Here").openPopup();
+                mymap.setView([lat,lon],20)
                 First=false;
                 }    
                 
+
+
                 document.getElementById('lat').textContent = lat.toFixed(2)
                 document.getElementById('lon').textContent = lon.toFixed(2) 
                 document.getElementById('heading').textContent = heading.toFixed(2)

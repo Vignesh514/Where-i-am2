@@ -5,7 +5,7 @@ async function BatteryStatus(){
     navigator.getBattery().then(function(battery){
       //  console.log(battery.level)
       const batterylevel = battery.level*100
-      
+        
      var batcolor = batterylevel.toString()
       if(batcolor < 25)
       {
@@ -17,9 +17,11 @@ async function BatteryStatus(){
         document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("orange")
       }
       else
+      
       {
         document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("green")
-      }
+      } 
+
 
       if(battery.charging === true)
       {
@@ -38,4 +40,4 @@ async function BatteryStatus(){
 
 }
 
-setInterval(BatteryStatus,1000)
+setInterval(BatteryStatus,500)
