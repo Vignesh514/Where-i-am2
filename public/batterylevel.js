@@ -6,17 +6,13 @@ async function BatteryStatus(){
       //  console.log(battery.level)
       const batterylevel = battery.level*100
       
-      //if(batterylevel <= 100)
-      
-       // document.getElementById('batterylevel').textContent = batterylevel.fontcolor("yellow")
-      
      var batcolor = batterylevel.toString()
       if(batcolor < 25)
       {
      document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("red")    
       }
       else
-      if(batcolor >25 && batcolor < 65)
+      if(batcolor >=25 && batcolor < 65)
       {
         document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("orange")
       }
@@ -24,7 +20,7 @@ async function BatteryStatus(){
       {
         document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("green")
       }
-      
+
       if(battery.charging === true)
       {
         var value = "Yes"
