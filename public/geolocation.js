@@ -62,4 +62,4 @@
 });
 }
 
-setInterval(getlocation,10000)
+setInterval(getlocation,1000)
