@@ -1,9 +1,12 @@
 //let Firstbuttonclick = true
 
 function timer(){
-var time = new Date().getTime()
-    var date = new Date(time)
-    document.getElementById('time').innerHTML = date.toString()
+
+const hours = new Date().getHours()
+const minutes = new Date().getMinutes()
+const seconds = new Date().getSeconds()
+const realtime = hours + ":" + minutes + ":" + seconds + " IST"
+document.getElementById('time').innerHTML = realtime.toString()
       
 }
 
