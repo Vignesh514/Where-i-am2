@@ -21,7 +21,10 @@ async function BatteryStatus(){
       {
         document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("green")
       } 
-
+      if(batcolor < 10 && battery.charging === false)
+      {
+        alert("Charge your Battery")
+      }
 
       if(battery.charging === true)
       {
