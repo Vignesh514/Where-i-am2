@@ -42,18 +42,27 @@
 
                 document.getElementById('lat').textContent = lat.toFixed(2)
                 document.getElementById('lon').textContent = lon.toFixed(2) 
-                document.getElementById('heading').textContent = heading.toFixed(2)
-                document.getElementById('altitude').textContent = altitude.toFixed(2)
+                //document.getElementById('heading').textContent = heading.toFixed(2)
+                document.getElementById('altitude').textContent = altitude.toFixed(2) 
                 
-                if(heading === null)
+                if(heading >= 348.75 && heading <= 11.25)
                 {
-                    document.getElementById('heading').textContent = "null"
+                    document.getElementById('heading').textContent = "North"
+                }
+                else
+                if(heading >11.25 && heading <= 56.25)
+                {
+                    document.getElementById('heading').textContent = "NorthEast"
+                }
+                else
+                if(heading >56.25 && heading <= 101.25)
+                {
+                    document.getElementById('heading').textContent = "East"
                 }
                 else
                 {
                     document.getElementById('heading').textContent = heading.toFixed(2)
                 }
-                
                 var speedperkm = speed * 3.6
                 document.getElementById('speed').textContent = speedperkm.toFixed(2)
                 
