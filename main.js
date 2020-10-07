@@ -8,6 +8,10 @@ const app= express();
 //  res.send("Hello welcome to second Page")
 //})
 
+app.get('/iss',function(req,res){
+  res.sendFile(__dirname+'/public/iss.html')
+})
+
 app.listen(3000,()=>{
   console.log("listening at 3000")
 })

@@ -55,7 +55,7 @@
                 }
                 
                 var speedperkm = speed * 3.6
-                document.getElementById('speed').textContent = speedperkm
+                document.getElementById('speed').textContent = speedperkm.toFixed(2)
                 
           
     
