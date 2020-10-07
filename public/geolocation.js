@@ -45,7 +45,7 @@
                 //document.getElementById('heading').textContent = heading.toFixed(2)
                 document.getElementById('altitude').textContent = altitude.toFixed(2) 
                 
-                if(speed < 2)
+                if(speed > 2)
                 {
                 if(heading >= 348.75 && heading <= 33.75)
                 {
@@ -88,13 +88,14 @@
                 }
             }
             else
+            if(speed<2)
             {
                 document.getElementById('heading').textContent = "Not Moving"
             }
 
                 var speedperkm = speed * 3.6
-                document.getElementById('speed').textContent = speedperkm.toFixed(2)
-                if(speed >= 2 && speed < 5)
+                document.getElementById('speed').textContent = speedperkm.toFixed(1)
+                if(speed >= 1 && speed < 5)
                 {
                     document.getElementById('speed').textContent = "Walking"
                 }
