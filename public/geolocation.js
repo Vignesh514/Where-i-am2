@@ -45,27 +45,59 @@
                 //document.getElementById('heading').textContent = heading.toFixed(2)
                 document.getElementById('altitude').textContent = altitude.toFixed(2) 
                 
-                if(heading >= 348.75 && heading <= 11.25)
+                if(speed < 2)
+                {
+                if(heading >= 348.75 && heading <= 33.75)
                 {
                     document.getElementById('heading').textContent = "North"
                 }
                 else
-                if(heading >11.25 && heading <= 56.25)
+                if(heading >33.75 && heading <= 78.75)
                 {
                     document.getElementById('heading').textContent = "NorthEast"
                 }
                 else
-                if(heading >56.25 && heading <= 101.25)
+                if(heading >78.75 && heading <= 123.25)
                 {
                     document.getElementById('heading').textContent = "East"
                 }
                 else
+                if(heading >123.25 && heading <= 168.75)
                 {
-                    document.getElementById('heading').textContent = heading.toFixed(2)
+                    document.getElementById('heading').textContent = "SouthEast"
                 }
+                else
+                if(heading >168.75 && heading <=213.75)
+                {
+                    document.getElementById('heading').textContent = "South"
+                }
+                else
+                if(heading >213.75 && heading <=258.75)
+                {
+                    document.getElementById('heading').textContent = "SouthWest"
+                }
+                else
+                if(heading > 258.75 && heading <=303.75)
+                {
+                    document.getElementById('heading').textContent = "West"
+                }
+                else
+                if(heading > 303.75 && heading<348.75)
+                {
+                    document.getElementById('heading').textContent = "NorthWest"
+                }
+            }
+            else
+            {
+                document.getElementById('heading').textContent = "Not Moving"
+            }
+
                 var speedperkm = speed * 3.6
                 document.getElementById('speed').textContent = speedperkm.toFixed(2)
-                
+                if(speed >= 2 && speed < 5)
+                {
+                    document.getElementById('speed').textContent = "Walking"
+                }
           
     
 
