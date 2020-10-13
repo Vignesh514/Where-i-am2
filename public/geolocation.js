@@ -94,8 +94,8 @@
             }
 
             var checked = document.getElementById('km/hr').checked
-
-            document.getElementById('speed').textContent = checked ? speed * 3.6.toFixed(1) : speed.toFixed(1)
+            var speedkmhr = speed * 3.6
+            document.getElementById('speed').textContent = checked ? speedkmhr.toFixed(2) : speed.toFixed(2)
 
 
 });
