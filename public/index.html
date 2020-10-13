@@ -23,12 +23,18 @@
     <p class="p">
         Latitude : <span id="lat"></span>°</br>
         Longitude : <span id="lon"></span>°</br>
-        Speed : <span id="speed"></span> Km/hr</br>
+        Speed : <span id="speed" style="text-align: center"></span> 
+        
+            <input type="radio" id="km/hr"  name="gender" value="male">
+            <label for="male">Km/hr</label>
+            <input type="radio" id="m/sec"  name="gender" value="female">
+            <label for="female">m/sec</label></br>
+          
         Heading Towards : <span id="heading"></span></br>
         Altitude : <span id="altitude"></span> m</br>
         Battery level: <span  id="batterylevel"></span> %</br>
         Battery Charging : <span  id="charging"></span></br>
-        Time :<span id="time"></span>   
+        Time :<span id="time" style="position: -webkit-sticky;"></span>   
     </p>
         <div style="text-align: left; border: cornsilk;" id="issMap"></div>
         <script src="/batterylevel.js"></script>    

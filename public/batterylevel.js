@@ -16,8 +16,7 @@ async function BatteryStatus(){
       {
         document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("orange")
       }
-      else
-      
+      else      
       {
         document.getElementById('batterylevel').innerHTML = batcolor.fontcolor("green")
       } 
@@ -37,10 +36,7 @@ async function BatteryStatus(){
         var color = value.fontcolor("red")
       }
       document.getElementById('charging').innerHTML = battery.charging ? color : color
-         })
+       })
 }
-
-
 }
-
 setInterval(BatteryStatus,500)

@@ -93,14 +93,10 @@
                 document.getElementById('heading').textContent = "Not Moving"
             }
 
-                var speedperkm = speed * 3.6
-                document.getElementById('speed').textContent = speedperkm.toFixed(1)
-                if(speed >= 1 && speed < 5)
-                {
-                    document.getElementById('speed').textContent = "Walking"
-                }
-          
-    
+            var checked = document.getElementById('km/hr').checked
+
+            document.getElementById('speed').textContent = checked ? speed * 3.6 : speed
+
 
 });
 }
