@@ -2,11 +2,7 @@
 require('dotenv').config()
 const express = require('express')
 const app= express();
-//const port = process.env.PORT
 
-//app.get('/second',function(req,res){
-//  res.send("Hello welcome to second Page")
-//})
 
 app.get('/iss',function(req,res){
   res.sendFile(__dirname+'/public/iss.html')
