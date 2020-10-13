@@ -95,7 +95,7 @@
 
             var checked = document.getElementById('km/hr').checked
 
-            document.getElementById('speed').textContent = checked ? speed * 3.6 : speed
+            document.getElementById('speed').textContent = checked ? speed * 3.6.toFixed(1) : speed.toFixed(1)
 
 
 });
