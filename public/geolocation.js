@@ -13,18 +13,23 @@
              
 
              let First = true; 
-        //Geolocation code...
-          function  getlocation(){    
-            
-            navigator.geolocation.getCurrentPosition((position) => {
-            const lat = position.coords.latitude
-            const lon = position.coords.longitude
-            const speed = position.coords.speed
-            const heading = position.coords.heading
-            const altitude = position.coords.altitude
-            console.log(position.coords.latitude)
-            console.log(position.coords.longitude)
-            console.log(position)
+            //Geolocation code...
+              function  getlocation(){    
+                
+                navigator.geolocation.getCurrentPosition(async(position) => {
+                const lat = position.coords.latitude
+                const lon = position.coords.longitude
+                //LAT AND LON FIXED
+                const latfixed = lat.toFixed(2)
+                const lonfixed = lon.toFixed(2)
+                //LAT AND LON FIXED
+                const speed = position.coords.speed
+                const heading = position.coords.heading
+                const altitude = position.coords.altitude
+                console.log(position.coords.latitude)
+                console.log(position.coords.longitude)
+                console.log(position)
+              
            // console.log(position.timestamp)
           //  console.log(watchID)
           
